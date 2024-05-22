@@ -8,25 +8,30 @@ app.use(express.json())
 
 //first paramenter set the page the data is going, so in this case it is going to localhost:8080/
 
+//to call in frontend just do the `GET http://localhost:8080/...`
+
+//decide whether if you want res.send or res.json
+//.send return all sort of datatype
+//.json only return json
 
 //lookup
 app.get("/recipes",async (req, res)=>{
     const recipes= await getRecipes()
-    res.json(recipes)
+    res.send(recipes)
 })
 
 //lookup
 app.get("/recipes/:id",async (req, res)=>{
     const id= req.params.id
     const recipe= await getRecipeById(id)
-    res.json(recipe) 
+    res.send(recipe) 
 })
 
 //add
 app.post("/recipes", async(req, res)=>{
     const {title, ingredient, instruction, image}=req.body
     const recipe=await createRecipe(title, ingredient, instruction, image)
-    res.status(201).json(recipe)
+    res.status(201).send(recipe)
 } )
 
 
