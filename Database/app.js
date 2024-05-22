@@ -6,25 +6,40 @@ import {getRecipeById, getRecipes,createRecipe} from './database.js'
 const app = express()
 app.use(express.json())
 
-//first parament set the page the data is going, so in this case it is going to localhost:8080/notes
+//first paramenter set the page the data is going, so in this case it is going to localhost:8080/
+
+
+//lookup
 app.get("/recipes",async (req, res)=>{
     const recipes= await getRecipes()
-    res.send(recipes)
+    res.json(recipes)
 })
 
+//lookup
 app.get("/recipes/:id",async (req, res)=>{
     const id= req.params.id
     const recipe= await getRecipeById(id)
-    res.send(recipe) 
+    res.json(recipe) 
 })
 
-
+//add
 app.post("/recipes", async(req, res)=>{
     const {title, ingredient, instruction, image}=req.body
     const recipe=await createRecipe(title, ingredient, instruction, image)
-    res.status(201).send(recipe)
+    res.status(201).json(recipe)
 } )
 
+
+//update
+app.put('/recipes/:id', (req, res) => {
+
+    });
+
+
+//delete
+app.delete('/recipes/:id', (req, res) => {
+
+    });
 
 //error handling
 app.use((err, req, res, next) => {
