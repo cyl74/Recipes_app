@@ -30,7 +30,7 @@ app.get("/recipes/:id",async (req, res)=>{
 //add
 app.post("/recipes", async(req, res)=>{
     const {title, ingredient, instruction, image}=req.body
-    const recipe=await createRecipe(title, ingredient, instruction, image)
+    const recipe=await createRecipe(title, ingredient, instruction, image)  
     res.status(201).send(recipe)
 } )
 

@@ -32,10 +32,10 @@ export async function getRecipeById(id){
 export async function createRecipe(title, ingredient, instruction, image) {
     const [result] = await pool.query(`
     INSERT INTO recipes (title, ingredient,instruction,image)
-    VALUES (?, ?,?,?)
-    `, [title, ingredient,instruction, image])
+    VALUES (?,?,?,?)
+    `, [title, JSON.stringify(ingredient),instruction, image])
     const id= result.insertId
-    return getRecipe(id)
+    return getRecipeById(id)
   }
 
 
