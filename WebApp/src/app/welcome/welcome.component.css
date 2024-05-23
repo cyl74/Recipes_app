@@ -1,0 +1,16 @@
+.grid-container {
+    display: grid;
+    width:80%;
+    /* to change number of column just add/subtract number of paramenter above(note want it to be percentage at some point */
+    column-gap: 5%;
+    row-gap: 10px;
+    border: 1px black solid;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.item  {
+    flex: 0 0 20%;
+    border: 1px black solid;
+    align-items: center;
+}

@@ -1,0 +1,20 @@
+<p>welcome works!</p>
+<!-- Welcome page will contain general info about website
+and maybe one or two randomly chosen recipes (done by random int from _ to _ and find id of it)
+Include a search bar on the top to find recieps you like via name a
+Your choice of do you want to use the food API
+add recieps here (bring you to a new page)
+
+Each recipes need a read more button(bring you to a new page)
+-->
+<div class="search">
+    <!-- we two way bind the searchTerm so we can filter the list of recipes -->
+    <input type="text" placeholder="Search for..." [(ngModel)]="searchTerm">
+</div>
+<!-- <app-recipes-list *ngFor="let r of recipes | search:searchTerm"></app-recipes-list> -->
+<p>{{searchTerm}}</p>
+<div class="d-flex flex-wrap p-3 bg-success text-white grid-container ">
+    <div class="col-3 p-2 bg-light text-success border border-dark item" *ngFor="let r of recipes | search:searchTerm">
+        {{r.title}}
+    </div>
+</div>
