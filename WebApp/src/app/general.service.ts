@@ -23,7 +23,8 @@ export class GeneralService {
    get() {
     return this.recipes
    }
-
+   
+   
    add(newRecipe:RecipesClass){
     this.http.post('http://localhost:8080/recipes',{
       "title":newRecipe.title,
@@ -33,7 +34,6 @@ export class GeneralService {
     }).subscribe(
       (data:any)=>{
         console.log(data);
-        
     })
    }
 

@@ -1,10 +1,13 @@
 import express from 'express'
+import cors from 'cors'
 import {getRecipeById, getRecipes,createRecipe} from './database.js'
 
 //http://localhost:8080/
 //npm run dev
 const app = express()
 app.use(express.json())
+app.use(cors({ origin: 'http://localhost:4200' }));
+
 
 //first paramenter set the page the data is going, so in this case it is going to localhost:8080/
 

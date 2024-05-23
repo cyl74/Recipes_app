@@ -72,4 +72,12 @@ export class WelcomeComponent {
     this.router.navigate(['/recipe/',recipe.id])//this will bring you to localhost:.../info/:id
   }
 
+  onAdd(){
+    this.service.add({ title:"cheese pizza",
+    ingredient:["tomato"],
+    instruction:"bake",
+    image:"none"
+    })
+  }
+
 }
