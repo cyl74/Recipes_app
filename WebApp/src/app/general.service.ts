@@ -13,30 +13,27 @@ export class GeneralService {
     //create any parament here if needed
     this.recipes=[]
    }
-   ngOnInit(): void {
-    this.http.get('http://localhost:8080/recipes')
-      .subscribe((data)=>{
-        console.log(data);
-      })
-  }
+
    //the rest of the functions goes here
-   get() {
-    return this.recipes
+   getAll():Observable<RecipesClass[]> {
+    return this.http.get<RecipesClass[]>('http://localhost:8080/recipes');
+   }
+
+   searchById(id:number):Observable<RecipesClass> {
+    return this.http.get<RecipesClass>('http://localhost:8080/recipes/'+id);
    }
    
    
-   add(newRecipe:RecipesClass){
-    this.http.post('http://localhost:8080/recipes',{
+   addRecipe(newRecipe:RecipesClass):Observable<RecipesClass>{
+    return this.http.post<RecipesClass>('http://localhost:8080/recipes',{//<RecipesClass> indicate return type
       "title":newRecipe.title,
       "ingredient":newRecipe.ingredient,
       "instruction": newRecipe.instruction, 
       "image":newRecipe.image
-    }).subscribe(
-      (data:any)=>{
-        console.log(data);
     })
    }
 
-   delete(del_id:number){
+   deleteRecipe(id:number){
+    return this.http.delete<RecipesClass>('http://localhost:8080/recipes/'+id);
    }
 }

@@ -1,0 +1,36 @@
+<p>add-recipe works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title">
+      <div *ngIf="form.get('title') && form.get('title')">
+        Title is required and must be at least 1 character.
+      </div>
+    </div>
+  
+    <div formArrayName="ingredients">
+      <label>Ingredients:</label>
+      <div *ngFor="let ingredient of ingredients.controls; let i = index">
+        <input [formControlName]="i">
+        <button type="button" (click)="removeIngredient(i)">Remove</button>
+      </div>
+      <button type="button" (click)="addIngredient()">Add Ingredient</button>
+    </div>
+  
+    <div>
+      <label for="instruction">Instruction:</label>
+      <textarea id="instruction" formControlName="instruction"></textarea>
+      <div *ngIf="form.get('instruction') && form.get('instruction')">
+        Instruction is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="img">Image URL:</label>
+      <input id="img" formControlName="img">
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Add Recipe</button>
+    <button type="button" routerLink=""> Cancel </button>
+  </form>
+  

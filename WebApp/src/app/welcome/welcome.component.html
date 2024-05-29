@@ -16,6 +16,8 @@ Each recipes need a read more button(bring you to a new page)
 <div class="d-flex flex-wrap p-3 bg-success text-white grid-container ">
     <div class="col-3 p-2 bg-light text-success border border-dark item" *ngFor="let r of recipes | search:searchTerm">
         {{r.title}}
+        <button (click)="onReadMore(r)">See More</button>
     </div>
 </div>
-<button (click)="onAdd()">TESTING</button>
+<button (click)="onAdd()">TESTING</button> 
+<button type="button" routerLink="/add"> Add Recipe </button>

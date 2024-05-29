@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SearchPipe } from './search.pipe';
 import { RecipeComponent } from './recipe/recipe.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     SearchPipe,
-    RecipeComponent
+    RecipeComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,

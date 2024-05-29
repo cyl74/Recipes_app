@@ -1,2 +1,16 @@
 <p>recipe works!</p>
 <!-- view each recipe with more detail -->
+<p>{{recipe.title}}</p>
+<p>{{recipe.ingredient}}</p>
+<p>{{recipe.instruction}}</p>
+
+<span *ngIf="(recipe.image=='none')||(recipe.image==null); then noIm else Im"></span>
+    <ng-template #Im>
+        <img src="{{recipe.image}}">
+    </ng-template>
+    <ng-template #noIm>
+        <p>No Image</p>
+    </ng-template>
+
+<button type="button" (click)="onDelete()"> Delete </button>
+<button type="button" routerLink=""> Cancel </button>
