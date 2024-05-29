@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import {getRecipeById, getRecipes,createRecipe} from './database.js'
+import {getRecipeById, getRecipes,createRecipe, deleteById} from './database.js'
 
 //http://localhost:8080/
 //npm run dev
@@ -26,7 +26,7 @@ app.get("/recipes",async (req, res)=>{
 //lookup
 app.get("/recipes/:id",async (req, res)=>{
     const id= req.params.id
-    const recipe= await getRecipeById(id)
+    const recipe= await getRecipeById(id) 
     res.send(recipe) 
 })
 
@@ -45,8 +45,10 @@ app.put('/recipes/:id', (req, res) => {
 
 
 //delete
-app.delete('/recipes/:id', (req, res) => {
-
+app.delete('/recipes/:id', async (req, res) => {
+    const id= req.params.id
+    const recipe= await deleteById(id) 
+    res.send(recipe) 
     });
 
 //error handling

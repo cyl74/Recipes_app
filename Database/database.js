@@ -39,4 +39,9 @@ export async function createRecipe(title, ingredient, instruction, image) {
   }
 
 
-//deletion(don't worry too much about this just now)
+//deletion
+export async function deleteById(id){
+    const result= await pool.query('DELETE FROM recipes WHERE id=?', [id])
+        const row=result[0]
+    return row[0]
+}
