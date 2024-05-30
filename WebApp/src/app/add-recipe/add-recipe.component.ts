@@ -19,7 +19,7 @@ export class AddRecipeComponent {
       title: ['', [Validators.required, Validators.minLength(1)]],
       ingredients: this.fb.array([this.fb.control('', Validators.required)]),
       instruction: ['', Validators.required],
-      img: ['None']
+      img: ['']
     });
   }
 
@@ -38,7 +38,7 @@ export class AddRecipeComponent {
   onSubmit() {
     if (this.form.valid) {
       const newRecipe = {title:this.form.value.title, ingredient: this.form.value.ingredients,
-         instruction: this.form.value.instruction, image: this.form.value.image };
+         instruction: this.form.value.instruction, image: this.form.value.img };
       this.service.addRecipe(newRecipe).subscribe(
         response => {
           console.log('Recipe added successfully', response);

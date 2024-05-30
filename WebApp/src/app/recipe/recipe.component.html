@@ -1,16 +1,23 @@
-<p>recipe works!</p>
-<!-- view each recipe with more detail -->
-<p>{{recipe.title}}</p>
-<p>{{recipe.ingredient}}</p>
-<p>{{recipe.instruction}}</p>
+<div class="recipe-container">
+    <p class="message">Recipe works!</p>
+    
+    <div class="recipe-detail">
+        <h2 class="recipe-title">{{recipe.title}}</h2>
+        <p class="recipe-ingredient"><strong>Ingredients:</strong> {{recipe.ingredient}}</p>
+        <div class="recipe-image">
+            <span *ngIf="(recipe.image=='none')||(recipe.image=='')||(recipe.image==null); then noIm else Im"></span>
+            <ng-template #Im>
+                <img [src]="recipe.image" alt="{{recipe.title}}">
+            </ng-template>
+            <ng-template #noIm>
+                <p>No Image</p>
+            </ng-template>
+        </div>
+        <p class="recipe-instruction"><strong>Instructions:</strong> {{recipe.instruction}}</p>
 
-<span *ngIf="(recipe.image=='none')||(recipe.image==null); then noIm else Im"></span>
-    <ng-template #Im>
-        <img src="{{recipe.image}}">
-    </ng-template>
-    <ng-template #noIm>
-        <p>No Image</p>
-    </ng-template>
-
-<button type="button" (click)="onDelete()"> Delete </button>
-<button type="button" routerLink=""> Cancel </button>
+        <div class="button-group">
+            <button type="button" class="delete-button" (click)="onDelete()">Delete</button>
+            <button type="button" class="cancel-button" routerLink="">Cancel</button>
+        </div>
+    </div>
+</div>

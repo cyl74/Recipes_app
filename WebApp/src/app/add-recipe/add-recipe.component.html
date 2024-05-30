@@ -1,4 +1,4 @@
-<p>add-recipe works!</p>
+
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div>
       <label for="title">Title:</label>
@@ -27,7 +27,7 @@
   
     <div>
       <label for="img">Image URL:</label>
-      <input id="img" formControlName="img">
+      <input id="img" formControlName="img" placeholder="none">
     </div>
   
     <button type="submit" [disabled]="form.invalid">Add Recipe</button>

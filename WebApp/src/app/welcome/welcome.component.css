@@ -1,16 +1,91 @@
-.grid-container {
+/* .grid-container {
     display: grid;
     width:80%;
     /* to change number of column just add/subtract number of paramenter above(note want it to be percentage at some point */
-    column-gap: 5%;
+    /* column-gap: 5%;
     row-gap: 10px;
     border: 1px black solid;
     align-items: center;
     /* justify-content: center; */
-}
+/* } */ 
 
-.item  {
+/* .item  {
     flex: 0 0 20%;
     border: 1px black solid;
     align-items: center;
-}
+} */ 
+
+
+/* Search input styles */
+.search {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Recipes grid styles */
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  h3 {
+    color: #dc3545;
+  }
+
+  .grid-container .item {
+    flex: 1 1 20%; /* Adjust width to ensure 4 items in a row with gap */
+    min-width: 200px; /* Minimum width for responsive design */
+    max-width: 20%; /* Ensure items don't grow too large */
+    height: 200px; /* Fixed height for consistent size */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 10px; /* Adjust margin for spacing */
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grid-container .item button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .grid-container .item {
+      flex: 1 1 calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-container .item {
+      flex: 1 1 100%;
+    }
+  }
